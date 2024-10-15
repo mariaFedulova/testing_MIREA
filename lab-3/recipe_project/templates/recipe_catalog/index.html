@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html >
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Page description">
+        <link rel="icon" href="fav.ico" type="image">
+        <title>Our recipes</title>
+    </head>
+    <body>
+        <h1>HomePage</h1>
+        <ul>
+            {% for recipe in recipe_list %}
+            <li><a href="{% url 'recipe_detail' recipe.recipe_id %}">{{ recipe.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
