@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Page description">
+    <link rel="icon" href="fav.ico" type="image">
+    {% load static %}
+    <title>{% block title %}Site Title{% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container header">
+            <a class="header__link logo" href="{% url 'index'%}">MyRecipe</a>
+            <a class="header__link" href="{% url 'about'%}">О нас</a>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container footer">&copy;2024</div>
+    </footer>
+</body>
+</html>

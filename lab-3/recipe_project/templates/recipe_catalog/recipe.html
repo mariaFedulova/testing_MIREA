@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html lang="ru">
-     <head>
-         <meta charset="utf-8">
-         <meta name="description" content="Page description">
-         <link rel="icon" href="fav.ico" type="image">
-         <title>{{title}}</title>
-     </head>
-     <body>
-         <h1>Recipe</h1>
-         <h2>{{title}}</h2>
-         <div>Description of the recipe with id = {{recipe_id}}</div>
-     </body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}{{title}}{% endblock %}
+
+{% block content %}
+    <h1>{{title}}</h1>
+    {% load static %}
+    <img class="recipe-page__img" src="{% static recipe_url %}" alt="{{title}}">
+    <div class="recipe-page__description">
+        <section>
+            <h2>Ингредиенты</h2>
+            <ul class="ingredients">
+                {% for ingredient in ingredients %}
+                {% load static %}
+                <li class="ingredients__item">
+                    {{ingredient.name}}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h2>Шаги по приготовлению</h2>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+            mollit anim id est laborum.
+        </section>
+    </div>
+    <a class="back-link" href="{% url 'index'%}">Назад</a>
+{% endblock %}

@@ -1,17 +1,16 @@
-<!DOCTYPE HTML>
-<html >
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="Page description">
-        <link rel="icon" href="fav.ico" type="image">
-        <title>Our recipes</title>
-    </head>
-    <body>
-        <h1>HomePage</h1>
-        <ul>
+{% extends "base.html" %}
+
+{% block title %}Our recipes{% endblock %}
+
+{% block content %}
+    <h1>Рецепты</h1>
+     <ul class="recipes">
             {% for recipe in recipe_list %}
-            <li><a href="{% url 'recipe_detail' recipe.recipe_id %}">{{ recipe.title }}</a></li>
+            {% load static %}
+            <li class="recipes__item">
+                <img class="recipes__item-img" src="{% static recipe.url %}" alt="{{recipe.name}}">
+                <a class="recipes__item-link" href="{% url 'recipe_detail' recipe.id %}">{{ recipe.name }}</a>
+            </li>
             {% endfor %}
-        </ul>
-    </body>
-</html>
+     </ul>
+{% endblock %}
