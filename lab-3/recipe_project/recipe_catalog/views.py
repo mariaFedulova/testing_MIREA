@@ -1,10 +1,12 @@
 from django.shortcuts import render
+
+from .models import Recipe
 # Create your views here.
 
 recipe_list = [
-        {'title': "Pancakes with meat", 'recipe_id': 1},
-        {'title': "Caesar salad", 'recipe_id': 2},
-        {'title': "Risotto", 'recipe_id': 3}
+        {'title': "Pancakes with meat", 'recipe_id': 1, 'url_image': 'images/recipes/recipe1.jpg'},
+        {'title': "Caesar salad", 'recipe_id': 2, 'url_image': 'images/recipes/recipe2.jpg'},
+        {'title': "Risotto", 'recipe_id': 3, 'url_image': 'images/recipes/recipe3.jpg'}
 ]
 
 def about(request):
@@ -14,8 +16,10 @@ def about(request):
 def index(request):
     template_name = 'recipe_catalog/index.html'
 
+    recipes = Recipe.objects.all()
+
     context = {
-        'recipe_list': recipe_list
+        'recipe_list': recipes
     }
     return render(request, template_name, context)
 
@@ -23,8 +27,12 @@ def index(request):
 def recipe_detail(request, pk):
     template_name = 'recipe_catalog/recipe.html'
 
+    recipe = Recipe.objects.get(pk=pk)
+
     context = {
-        'title': recipe_list[pk-1]['title'],
-        'recipe_id': pk
+        'title': recipe.name,
+        'recipe_url': recipe.url,
+        'recipe_id': pk,
+        'ingredients': recipe.ingredients.order_by('name')
     }
     return render(request, template_name, context)
