@@ -33,6 +33,6 @@ def recipe_detail(request, pk):
         'title': recipe.name,
         'recipe_url': recipe.url,
         'recipe_id': pk,
-        'ingredients': recipe.ingredients.order_by('name')
+        'ingredients': recipe.recipeingredient_set.all().order_by('ingredient__name')
     }
     return render(request, template_name, context)

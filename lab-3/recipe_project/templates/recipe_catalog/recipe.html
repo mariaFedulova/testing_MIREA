@@ -13,7 +13,12 @@
                 {% for ingredient in ingredients %}
                 {% load static %}
                 <li class="ingredients__item">
-                    {{ingredient.name}}
+                    {{ingredient.ingredient.name}}
+                    {% if ingredient.weight == 0 %}
+                        {{ingredient.count}} шт
+                    {% else %}
+                        {{ingredient.weight}} гр
+                    {% endif %}
                 </li>
                 {% endfor %}
             </ul>
