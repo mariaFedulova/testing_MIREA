@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <form >
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+    {% if request.GET %}
+    <!-- ...поприветствуем пользователя: -->
+        <h2>Привет, {{ request.GET.first_name }}</h2>
+    {% endif %}
+{% endblock %}

@@ -13,7 +13,19 @@
     <header>
         <div class="container header">
             <a class="header__link logo" href="{% url 'index'%}">MyRecipe</a>
+            <a class="header__link" href="{% url 'ingredients'%}">Ингредиенты</a>
+            <a class="header__link" href="{% url 'ingredient'%}">Добавить ингредиент</a>
+            <a class="header__link" href="{% url 'recipe'%}">Добавить рецепт</a>
             <a class="header__link" href="{% url 'about'%}">О нас</a>
+            {% if user.is_authenticated %}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input class="logout-button" type="submit" value="Выйти">
+                </form>
+            {% else %}
+                <a class="header__link" href="{% url 'login' %}">Войти</a>
+            {% endif %}
+            
         </div>
 
     </header>

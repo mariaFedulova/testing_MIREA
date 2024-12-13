@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Our ingredients{% endblock %}
+
+{% block content %}
+    <h1>Ингредиенты</h1>
+     <ul class="ingredient">
+            {% for ingredient in ingredient_list %}
+            <li class="ingredient__item">
+                <a class="ingredient__item-link" href="{% url 'ingredient_edit' ingredient.id %}">{{ ingredient.name }}</a>
+            </li>
+            {% endfor %}
+     </ul>
+{% endblock %}

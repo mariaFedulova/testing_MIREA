@@ -9,6 +9,23 @@ body {
     margin: 0 auto;
 }
 
+a{
+    color: #000;
+}
+
+a:hover{
+    color: #ff8138;
+}
+
+.ingredients_table{
+    width: 40%;
+    margin: 10px 0 0 0;
+    border: 1px solid;
+}
+.ingredients_table td{
+    border: 1px solid;
+}
+
 h1 {
     font-size: 40px;
     margin: 40px 0;
@@ -68,6 +85,10 @@ footer{
     font-size: 16px
 }
 
+.header__link:hover{
+    opacity: 0.5;
+}
+
 .logo{
     font-size: 34px;
     position: relative;
@@ -100,7 +121,7 @@ footer{
     border: 1px solid #000;
     margin: 0 70px 20px 0;
     padding:20px;
-    bord-sizing: border-box;
+    box-sizing: border-box;
     border-radius: 6px;
     background-color: #000;
 }
@@ -140,4 +161,48 @@ footer{
     min-height: 80px;
     display: flex;
     align-items: center;
+}
+
+.ingredient{
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredient__item{
+    border: 1px solid #ccc;
+    padding: 15px;
+}
+
+.ingredient__item:hover{
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.ingredient__item:hover a{
+    color: #ff8138;
+}
+
+.ingredient__item-link{
+    color: #000;
+}
+
+.item-button{
+    border-radius: 10px;
+    border: 3px solid #000;
+    padding: 10px 20px;
+    margin: 50px 0 0;
+}
+
+input{
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.logout-button{
+    color: #fff;
+}
+
+.recipe_action_link{
+    margin-left: 10px;
 }

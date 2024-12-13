@@ -4,6 +4,7 @@
 
 {% block content %}
     <h1>{{title}}</h1>
+    <p>Автор: {{author}}</p>
     {% load static %}
     <img class="recipe-page__img" src="{% static recipe_url %}" alt="{{title}}">
     <div class="recipe-page__description">
@@ -21,16 +22,16 @@
                     {% endif %}
                 </li>
                 {% endfor %}
+                Вес готового продукта: {{ready_weight}} гр
             </ul>
         </section>
         <section>
             <h2>Шаги по приготовлению</h2>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-            mollit anim id est laborum.
+            <p>{{steps}}</p>
         </section>
     </div>
     <a class="back-link" href="{% url 'index'%}">Назад</a>
+    <a class="recipe_action_link" href="{% url 'recipe_add' recipe_id %}">Добавить ингредиент</a>
+    <a class="recipe_action_link" href="{% url 'recipe_edit' recipe_id %}">Редактировать рецепт</a>
+    <a class="recipe_action_link" href="{% url 'recipe_delete' recipe_id %}">УДАЛИТЬ РЕЦЕПТ!</a>
 {% endblock %}
